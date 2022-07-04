@@ -1,6 +1,7 @@
 from dataclasses import field
-from datetime import datetime
-from tkinter import Widget
+from datetime import date, datetime
+from xmlrpc.client import DateTime
+from django.forms import  DateTimeInput, Widget
 from django import forms
 from . models import *
 
@@ -15,5 +16,5 @@ class DateInput(forms.DateInput):
 class HomeworkForm(forms.ModelForm):
     class Meta:
         model=Homework
-        Widgets={'due':DateInput()}
+        Widgets={'due':date}
         fields=["subject","title","description","due","is_finished"]
